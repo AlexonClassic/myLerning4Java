@@ -12,7 +12,7 @@ import java.util.Scanner;
  *  int sum(int[] array)
  *
  *  Пример работы:
- *  sum(new int[]{2, 1, 3}) == 6
+ *  sum(new int[] {2, 1, 3}) == 6
  */
 
 public class ArraysTask2OneStarArraySumCalculator {
