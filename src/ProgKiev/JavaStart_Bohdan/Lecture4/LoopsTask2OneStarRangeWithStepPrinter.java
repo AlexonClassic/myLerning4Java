@@ -6,8 +6,9 @@ import java.util.Scanner;
  * Created by Олександр Шаповал on 28.06.2016.
  *
  * Лекция 4. Задача 2. Loops - Одна звезда:
- * Вывод на экран целых чисел от first до last с шагом step. Если вывод может
- * привести к зацикливанию, бросить исключение illegalArgumentException
+ * Вывод на экран целых чисел от first до last с шагом step.
+ * Если вывод может привести к зацикливанию, бросить исключение
+ * illegalArgumentException
  */
 
 public class LoopsTask2OneStarRangeWithStepPrinter {
