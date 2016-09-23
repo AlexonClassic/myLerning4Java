@@ -4,7 +4,7 @@ package JavaRushTasks;
  * Created by Олександр Шаповал on 08.06.2016.
  *
  * JavaRush - Task - 1
- */
+ **/
 
 public class jrTask1 {
     public static void main(String[] args) {
