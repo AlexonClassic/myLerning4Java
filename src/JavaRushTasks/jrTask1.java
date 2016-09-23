@@ -27,9 +27,7 @@ public class jrTask1 {
 
     Программа должна компилироваться.
 
-
 Nothing personal, it's just business.
-
 
     public class Solution {*/
         double s = Math.pow(5, 4);
