@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * Лекция 4. Задача 3. Loops - Одна звезда:
  * Вывод на экран чётных чисел от first до last.
- * Если first > last, ничего не выводить.
+ * Если first > last, ничего не выводить
  */
 
 public class LoopsTask3OneStarEvenRangePrinter {
