@@ -3,7 +3,7 @@ package VideoLesons.DevPeople;
 import VideoLesons.DevCat.Cat;
 
 /**
- * Created by Олександр Шаповал on 21.09.2016.
+ * Created by Олександр Шаповал on 21.09.2016
  *
  * https://youtu.be/yoFRDSh6lWI?list=PLIU76b8Cjem48KXIy83YIm-QM6SwvzjQd
  */
