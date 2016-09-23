@@ -4,7 +4,7 @@ package ProgKiev.JavaStart_Bohdan.Lecture4;
  * Created by Олександр Шаповал on 28.06.2016.
  *
  * Лекция 4. Задача 1. Loops - Одна звезда:
- * Вывод на экран целых чисел от first до last.
+ * Вывод на экран целых чисел от first до last
  */
 
 public class LoopsTask1OneStarRangePrinter {
