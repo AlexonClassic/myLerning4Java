@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * Лекция 4. Задача 1. Arrays - Одна звезда:
  * Написать метод заполнения массива array указанным
- * значением filler, void fill(int[]  array,   int filler)
+ * значением filler, void fill(int[] array,   int filler)
  */
 
 public class ArraysTask1OneStarArrayFiller {
