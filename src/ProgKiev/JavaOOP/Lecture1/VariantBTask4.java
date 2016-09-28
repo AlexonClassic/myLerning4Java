@@ -20,13 +20,25 @@ public class VariantBTask4 {
         montsNumber = scanner.nextInt();
 
         if (montsNumber > 12){
-            System.out.println();
-            System.out.println("You enter very big number. Max monts number is 12. Please, enter number from 1 to 12...");
-            System.out.println();
-            System.out.print("Enter month number: ");
-            montsNumber = scanner.nextInt();
+            montsNumber = EnterWrongNumber(scanner);
         }
 
+        MontsPrinter(montsNumber);
+    }
+
+    public static int EnterWrongNumber(Scanner scanner) {
+        int montsNumber;
+
+        System.out.println();
+        System.out.println("You enter very big number. Max monts number is 12. Please, enter number from 1 to 12...");
+        System.out.println();
+        System.out.print("Enter month number: ");
+        montsNumber = scanner.nextInt();
+
+        return montsNumber;
+    }
+
+    public static void MontsPrinter(int montsNumber) {
         switch (montsNumber){
             case 1:
                 System.out.println("it's January");
