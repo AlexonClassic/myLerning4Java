@@ -1,6 +1,6 @@
-package VideoLesons.DevPeople;
+package VideoLesons.CatAndPeople.DevPeople;
 
-import VideoLesons.DevCat.Cat;
+import VideoLesons.CatAndPeople.DevCat.Cat;
 
 /**
  * Created by Олександр Шаповал on 21.09.2016

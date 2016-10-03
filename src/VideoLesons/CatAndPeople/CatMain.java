@@ -1,8 +1,8 @@
-package VideoLesons;
+package VideoLesons.CatAndPeople;
 
-import VideoLesons.DevCat.Cat;
-import VideoLesons.DevCat.Sportsmen;
-import VideoLesons.DevPeople.CatPeople;
+import VideoLesons.CatAndPeople.DevCat.Cat;
+import VideoLesons.CatAndPeople.DevCat.Sportsmen;
+import VideoLesons.CatAndPeople.DevPeople.CatPeople;
 
 /**
  * Created by Олександр Шаповал on 21.09.2016.

@@ -1,4 +1,4 @@
-package VideoLesons.DevCat;
+package VideoLesons.CatAndPeople.DevCat;
 
 /**
  * Created by Олександр Шаповал on 21.09.2016.
