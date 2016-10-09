@@ -7,13 +7,13 @@ package OtherTasks.Rectangle;
  */
 
 public class Rectangle {
-    public static Rectangle combine(Rectangle r1, Rectangle r2) {
-        return new Rectangle(r1.width + r2.width, r1.height + r2.height);
-    }
-
     public static final String NAME = "Rectangle";
 
     private int width, height;
+
+    public static Rectangle combine(Rectangle r1, Rectangle r2) {
+        return new Rectangle(r1.width + r2.width, r1.height + r2.height);
+    }
 
     public Rectangle() {
         width = 10;
