@@ -43,7 +43,7 @@ class Menu {
                 System.out.println("    //...");
                 System.out.println("}");
                 break;
-            case 'З':
+            case '3':
                 System.out.println("while:\n");
                 System.out.println("while (условие) {");
                 System.out.println("    оператор;");
