@@ -4,14 +4,17 @@ import java.util.Date;
 
 /**
  * Created by Олександр Шаповал on 10.10.2016.
+ *
+ * Получение текущего дня недели
  */
+
 public class GetDay {
     public static void main(String[] args) {
-        System.out.println("Today is " + A.TODAY);
+        System.out.println("Today is " + DayGetter.TODAY);
     }
 }
 
-class A {
+class DayGetter {
     static public String TODAY;
 
     static { // статический конструктор
