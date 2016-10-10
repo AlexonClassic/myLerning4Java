@@ -47,6 +47,7 @@ public class RectangleRunner {
 
         for (int i = 0; i < rectangleCount; i++) {
             rectangles[i] = new RectangleRunner();
+
             System.out.print("Enter new rectangle height: ");
             rectangles[i].setHeight(scanner.nextInt());
 
