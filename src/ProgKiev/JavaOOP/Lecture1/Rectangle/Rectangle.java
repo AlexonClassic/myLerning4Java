@@ -42,10 +42,11 @@ public class Rectangle {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println();
-        System.out.print("Enter rectangle height: ");
+        System.out.println("The creation of a single rectangle:");
+        System.out.print("- enter rectangle height: ");
         height = scanner.nextInt();
 
-        System.out.print("Enter rectangle width: ");
+        System.out.print("- enter rectangle width: ");
         width = scanner.nextInt();
 
         calculationAndPrintPerimetrOfRectangle(height, width);
@@ -56,14 +57,15 @@ public class Rectangle {
         int rectanglePerimetr = (height + width) * 2;
 
         System.out.println("---------------");
-        System.out.print("Rectangle perimetr equals: " + rectanglePerimetr);
+        System.out.print("Single rectangle perimetr equals: " + rectanglePerimetr);
     }
 
     public static void calculationAndPrintAreaOfRectangle(int height, int width) {
         int rectangleArea = height * width;
 
         System.out.println();
-        System.out.print("Rectangle area equals: " + rectangleArea);
+        System.out.print("Single rectangle area equals: " + rectangleArea);
         System.out.println();
+        System.out.println("---------------");
     }
 }

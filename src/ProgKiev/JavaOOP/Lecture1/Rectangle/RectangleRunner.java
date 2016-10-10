@@ -21,7 +21,7 @@ public class RectangleRunner {
     public void RectanglesCreater() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("---------------");
+        System.out.println();
         System.out.print("How many rectangle you wont to create for calculation? ");
         rectangleCount = scanner.nextInt();
 
@@ -30,10 +30,10 @@ public class RectangleRunner {
         for (int i = 0; i < rectangleCount; i++) {
             rectangles[i] = new Rectangle(0, 0);
 
-            System.out.print("Enter new rectangle height: ");
+            System.out.print("- enter new rectangle height: ");
             rectangles[i].setHeight(scanner.nextInt());
 
-            System.out.print("Enter new rectangle width: ");
+            System.out.print("- enter new rectangle width: ");
             rectangles[i].setWidth(scanner.nextInt());
             System.out.println("---------------");
         }
