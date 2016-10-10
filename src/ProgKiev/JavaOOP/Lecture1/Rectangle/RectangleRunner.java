@@ -14,27 +14,9 @@ import java.util.Scanner;
  */
 
 public class RectangleRunner {
-    private int height = 0;
-    private int width = 0;
     private int rectangleCount = 0;
-    private int allRectanglesTotalSquere = 0;
     private int temp = 0;
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    private int allRectanglesTotalSquere = 0;
 
     public void RectanglesCreater() {
         Scanner scanner = new Scanner(System.in);
@@ -43,10 +25,10 @@ public class RectangleRunner {
         System.out.print("How many rectangle you wont to create for calculation? ");
         rectangleCount = scanner.nextInt();
 
-        RectangleRunner[] rectangles = new RectangleRunner[rectangleCount];
+        Rectangle[] rectangles = new Rectangle[rectangleCount];
 
         for (int i = 0; i < rectangleCount; i++) {
-            rectangles[i] = new RectangleRunner();
+            rectangles[i] = new Rectangle(0, 0);
 
             System.out.print("Enter new rectangle height: ");
             rectangles[i].setHeight(scanner.nextInt());
@@ -59,8 +41,8 @@ public class RectangleRunner {
         RectanglesTotalSquereCalc(rectangles);
     }
 
-    public void RectanglesTotalSquereCalc(RectangleRunner[] rectangles) {
-        for (RectangleRunner i: rectangles) {
+    public void RectanglesTotalSquereCalc(Rectangle[] rectangles) {
+        for (Rectangle i: rectangles) {
             temp = i.getHeight() * i.getWidth();
         }
 
