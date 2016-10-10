@@ -28,7 +28,7 @@ public class RectangleRunner {
         Rectangle[] rectangles = new Rectangle[rectangleCount];
 
         for (int i = 0; i < rectangleCount; i++) {
-            rectangles[i] = new Rectangle(0, 0);
+            rectangles[i] = new Rectangle();
 
             System.out.print("- enter new rectangle height: ");
             rectangles[i].setHeight(scanner.nextInt());

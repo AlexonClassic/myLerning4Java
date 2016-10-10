@@ -13,7 +13,7 @@ package ProgKiev.JavaOOP.Lecture1.Rectangle;
 
 public class RectangleMain {
     public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle(0, 0);
+        Rectangle rectangle = new Rectangle();
         rectangle.RectengleCreate(0, 0);
 
         RectangleRunner rectangleRunner = new RectangleRunner();
