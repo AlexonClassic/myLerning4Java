@@ -16,8 +16,11 @@ package ProgKiev.JavaOOP.Lecture2.ImmutablePointLine;
  */
 
 public class Line {
-    private Point start = null;
-    private Point end = null;
+    private final Point start;
+    private final Point end;
 
-
+    public Line(Point start, Point end) {
+        this.start = start;
+        this.end = end;
+    }
 }
