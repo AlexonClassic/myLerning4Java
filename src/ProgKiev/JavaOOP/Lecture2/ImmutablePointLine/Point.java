@@ -23,8 +23,6 @@ public class Point {
     private final int x;
     private final int y;
 
-    Point[] points = new Point[lineCount];
-
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
@@ -45,6 +43,8 @@ public class Point {
     public void pointsCreator() {
         Scanner scanner = new Scanner(System.in);
         lineCount = scanner.nextInt();
+
+        Point[] points = new Point[lineCount];
 
         System.out.println("----------------------");
         System.out.println("enter points for first line: ");
