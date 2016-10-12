@@ -35,7 +35,7 @@ public class Point {
         Point[] points = new Point[lineCount];
 
         System.out.println("----------------------");
-        System.out.println("enter first points for first line: ");
+        System.out.println("enter points for first line: ");
         pointerFiller(scanner);
 
         points[0] = new Point(x, y);
@@ -52,12 +52,14 @@ public class Point {
         System.out.println(Arrays.toString(points));
     }
 
-    public void pointerFiller(Scanner scanner) {
+    public static Point pointerFiller(Scanner scanner) {
         System.out.print("     - enter x: ");
-        x = scanner.nextInt();
+        int x = scanner.nextInt();
 
         System.out.print("     - enter y: ");
-        y = scanner.nextInt();
+        int y = scanner.nextInt();
+
+        return new Point(x, y);
     }
 
     @Override
