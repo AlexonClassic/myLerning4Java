@@ -23,29 +23,37 @@ public class Point {
     private final int x;
     private final int y;
 
+    Point[] points = new Point[lineCount];
+
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public int getLineCount() {
+        return lineCount;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public void pointsCreator() {
         Scanner scanner = new Scanner(System.in);
         lineCount = scanner.nextInt();
 
-        Point[] points = new Point[lineCount];
-
         System.out.println("----------------------");
         System.out.println("enter points for first line: ");
-        pointerFiller(scanner);
-
-        points[0] = new Point(x, y);
+        points[0] = pointerFiller(scanner);
 
         for (int i = 1; i < lineCount; i++){
             System.out.println("----------------------");
             System.out.println("enter points for next line:");
-            pointerFiller(scanner);
-
-            points[i] = new Point(x, y);
+            points[i] = pointerFiller(scanner);
         }
 
         System.out.println("----------------------");
