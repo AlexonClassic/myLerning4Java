@@ -2,10 +2,12 @@ package OtherTasks;
 
 /**
  * Created by Олександр Шаповал on 22.10.2016.
+ *
+ * Change var. Var 'a' to 'b' and 'b', to 'a'
  */
+
 public class ChangeVar {
     public static void main(String[] args) {
-// Change var. Var 'a' to 'b' and 'b', to 'a'
         int a = 89;
         int b = 72;
 
