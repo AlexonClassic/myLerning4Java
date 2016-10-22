@@ -8,8 +8,8 @@ package OtherTasks;
 
 public class ChangeVar {
     public static void main(String[] args) {
-        int a = 89;
-        int b = 72;
+        int a = 1_500_000_001;
+        int b = 1_500_000_002;
 
         System.out.println("----------------------");
         System.out.println("Begin a = " + a);
@@ -22,6 +22,32 @@ public class ChangeVar {
         System.out.println("b = a - b: " + b);
         a = a - b;
         System.out.println("a = a - b: " + a);
+
+        System.out.println("----------------------");
+        System.out.println("After a = " + a);
+        System.out.println("After b = " + b);
+
+        ChangeVarExampleTwo();
+    }
+
+    public static void ChangeVarExampleTwo(){
+        int temp;
+        int a = 1_500_000_001;
+        int b = 1_500_000_002;
+
+        System.out.println("----------------------");
+        System.out.println();
+        System.out.println("Next example:");
+        System.out.println("Begin a = " + a);
+        System.out.println("Begin b = " + b);
+        System.out.println("----------------------");
+
+        temp = a;
+        System.out.println("temp: " + temp);
+        a = b;
+        System.out.println("a = b: " + a);
+        b = temp;
+        System.out.println("b = temp: " + b);
 
         System.out.println("----------------------");
         System.out.println("After a = " + a);
