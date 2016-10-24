@@ -1,8 +1,8 @@
-package ProgKiev.JavaOOP.CourseProject;
+package ProgKiev.JavaOOP.MyCourseProject;
 
-import ProgKiev.JavaOOP.CourseProject.Company.Company;
-import ProgKiev.JavaOOP.CourseProject.User.Profile.UserCreateProfile;
-import ProgKiev.JavaOOP.CourseProject.Utils.Errors;
+import ProgKiev.JavaOOP.MyCourseProject.Company.Company;
+import ProgKiev.JavaOOP.MyCourseProject.User.Profile.UserCreateProfile;
+import ProgKiev.JavaOOP.MyCourseProject.Utils.Errors;
 
 import java.util.Scanner;
 

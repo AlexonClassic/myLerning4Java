@@ -1,6 +1,6 @@
-package ProgKiev.JavaOOP.CourseProject.User.CV;
+package ProgKiev.JavaOOP.MyCourseProject.User.CV;
 
-import ProgKiev.JavaOOP.CourseProject.User.Profile.User;
+import ProgKiev.JavaOOP.MyCourseProject.User.Profile.User;
 
 /**
  * Created by Олександр Шаповал on 23.09.2016.

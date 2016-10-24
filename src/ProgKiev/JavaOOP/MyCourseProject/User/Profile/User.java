@@ -1,6 +1,6 @@
-package ProgKiev.JavaOOP.CourseProject.User.Profile;
+package ProgKiev.JavaOOP.MyCourseProject.User.Profile;
 
-import ProgKiev.JavaOOP.CourseProject.Utils.IDGenerator;
+import ProgKiev.JavaOOP.MyCourseProject.Utils.IDGenerator;
 import java.util.Scanner;
 
 /**

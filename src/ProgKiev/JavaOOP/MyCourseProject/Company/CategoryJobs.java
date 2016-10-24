@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProject.Company;
+package ProgKiev.JavaOOP.MyCourseProject.Company;
 
 /**
  * Created by andy on 07.10.2016.

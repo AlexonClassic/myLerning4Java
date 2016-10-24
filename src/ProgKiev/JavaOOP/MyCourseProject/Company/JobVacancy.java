@@ -1,6 +1,6 @@
-package ProgKiev.JavaOOP.CourseProject.Company;
+package ProgKiev.JavaOOP.MyCourseProject.Company;
 
-import ProgKiev.JavaOOP.CourseProject.Utils.IDGenerator;
+import ProgKiev.JavaOOP.MyCourseProject.Utils.IDGenerator;
 
 /**
  * Created by andy and Олександр Шаповал on 22.10.2016.

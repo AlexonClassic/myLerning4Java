@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProject.User.Profile;
+package ProgKiev.JavaOOP.MyCourseProject.User.Profile;
 
 import java.util.Arrays;
 import java.util.Scanner;

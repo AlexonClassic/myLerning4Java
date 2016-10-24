@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProject.Company;
+package ProgKiev.JavaOOP.MyCourseProject.Company;
 
 import java.util.ArrayList;
 import java.util.List;

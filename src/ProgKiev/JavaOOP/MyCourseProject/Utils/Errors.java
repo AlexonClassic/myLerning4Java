@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProject.Utils;
+package ProgKiev.JavaOOP.MyCourseProject.Utils;
 
 /**
  * Created by Олександр Шаповал on 23.09.2016.
