@@ -1,6 +1,4 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting;
-
-import java.util.Comparator;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity;
 
 /**
  * @author bvanchuhov
@@ -56,22 +54,6 @@ import java.util.Comparator;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class CommonComparators {
-
-    private CommonComparators() {}
-
-    public static <T> Comparator<T> multiCriterion(Comparator<T>... comparators) {
-        return new Comparator<T>() {
-            @Override
-            public int compare(T a, T b) {
-                for (Comparator<T> comparator : comparators) {
-                    int cmp = comparator.compare(a, b);
-                    if (cmp != 0) {
-                        return cmp;
-                    }
-                }
-                return 0;
-            }
-        };
-    }
+public interface Entity {
+    String toOutputString(String delimiter);
 }

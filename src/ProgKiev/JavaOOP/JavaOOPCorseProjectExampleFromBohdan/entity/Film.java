@@ -1,4 +1,9 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity;
+
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.common.StringJoiner;
+
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * @author bvanchuhov
@@ -54,20 +59,77 @@ package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class Validator {
+public final class Film implements Entity, Serializable {
 
-    private Validator() {}
+    private static final long serialVersionUID = 1901844035306848617L;
 
-    public static boolean isReleaseYear(int year) {
-        return year >= 1880 && year <= 2050;
+    private String name;
+    private int releaseYear;
+    private Set<Genre> genres = new TreeSet<>();
+
+    public Film(String name) {
+        this.name = name;
     }
 
-    public static boolean isInt(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+    public Film(String name, int releaseYear, Collection<Genre> genres) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+        this.genres = new TreeSet<>(genres);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Film setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public Film setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+        return this;
+    }
+
+    public Film addGenre(Genre genre) {
+        genres.add(genre);
+        return this;
+    }
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Film)) return false;
+        Film film = (Film) o;
+        return releaseYear == film.releaseYear &&
+                Objects.equals(name, film.name) &&
+                Objects.equals(genres, film.genres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, releaseYear, genres);
+    }
+
+    @Override
+    public String toOutputString(String delimiter) {
+        return new StringJoiner(delimiter).join(name, releaseYear, new StringJoiner(", ").join(genres.toArray()));
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "name='" + name + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", genres=" + genres +
+                '}';
     }
 }

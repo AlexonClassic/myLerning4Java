@@ -1,4 +1,8 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting;
+
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity.Film;
+
+import java.util.Comparator;
 
 /**
  * @author bvanchuhov
@@ -54,6 +58,25 @@ package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public interface Entity {
-    String toOutputString(String delimiter);
+public class FilmComparators {
+
+    private FilmComparators() {}
+
+    public static Comparator<Film> byReleaseYear() {
+        return new Comparator<Film>() {
+            @Override
+            public int compare(Film a, Film b) {
+                return Integer.compare(a.getReleaseYear(), b.getReleaseYear());
+            }
+        };
+    }
+
+    public static Comparator<Film> byName() {
+        return new Comparator<Film>() {
+            @Override
+            public int compare(Film a, Film b) {
+                return a.getName().compareTo(b.getName());
+            }
+        };
+    }
 }

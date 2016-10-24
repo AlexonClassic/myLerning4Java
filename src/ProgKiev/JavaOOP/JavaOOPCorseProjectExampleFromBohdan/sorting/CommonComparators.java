@@ -1,4 +1,6 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting;
+
+import java.util.Comparator;
 
 /**
  * @author bvanchuhov
@@ -54,17 +56,22 @@ package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class IllegalFormatException extends RuntimeException {
+public class CommonComparators {
 
-    public IllegalFormatException(String message) {
-        super(message);
-    }
+    private CommonComparators() {}
 
-    public IllegalFormatException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public IllegalFormatException(Throwable cause) {
-        super(cause);
+    public static <T> Comparator<T> multiCriterion(Comparator<T>... comparators) {
+        return new Comparator<T>() {
+            @Override
+            public int compare(T a, T b) {
+                for (Comparator<T> comparator : comparators) {
+                    int cmp = comparator.compare(a, b);
+                    if (cmp != 0) {
+                        return cmp;
+                    }
+                }
+                return 0;
+            }
+        };
     }
 }

@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.common;
 
 /**
  * @author bvanchuhov
@@ -54,29 +54,25 @@ package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public enum Genre {
-    ACTION,
-    ADVENTURE,
-    FANTASY,
-    ANIMATION,
-    COMEDY,
-    CRIME,
-    DETECTIVE,
-    DRAMA,
-    DOCUMENTARY,
-    FAMILY,
-    HORROR,
-    ROMANCE,
-    SCI_FI,
-    THRILLER,
-    WAR;
+public class StringJoiner {
 
-    public static boolean isGenre(String s) {
-        for (Genre genre : Genre.values()) {
-            if (genre.name().equals(s)) {
-                return true;
-            }
+    private final String delimiter;
+
+    public StringJoiner(String delimiter) {
+        this.delimiter = delimiter;
+    }
+
+    public String join(Object... elems) {
+        StringBuilder res = new StringBuilder();
+        for (Object elem : elems) {
+            res.append(elem).append(delimiter);
         }
-        return false;
+        deleteLastDelimiter(res);
+
+        return res.toString();
+    }
+
+    private StringBuilder deleteLastDelimiter(StringBuilder res) {
+        return res.delete(res.length() - delimiter.length(), res.length());
     }
 }

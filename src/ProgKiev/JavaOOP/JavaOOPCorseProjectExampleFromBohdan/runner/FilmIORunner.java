@@ -1,22 +1,13 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.runner;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.runner;
 
-import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity.Film;
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.io.IllegalFormatException;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common.CommonUtils.printList;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Genre.*;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering.CommonPredicates.allOf;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering.FilmPredicates.containsInName;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering.FilmPredicates.withReleaseYearBetween;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering.Filter.filter;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting.CommonComparators.multiCriterion;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting.FilmComparators.byName;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting.FilmComparators.byReleaseYear;
-import static java.util.Arrays.asList;
-import static java.util.Collections.reverseOrder;
-import static java.util.Collections.sort;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.io.FilmIOUtils.readFilmsFromFile;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.io.FilmIOUtils.writeFilmsIntoBinFile;
 
 /**
  * @author bvanchuhov
@@ -72,22 +63,20 @@ import static java.util.Collections.sort;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class FilteringSortingRunner {
+public class FilmIORunner {
+
+    public static final String INPUT_TEXT_FILE = "files/films.csv";
+    public static final String OUTPUT_BIN_FILE = "files/films.dat";
 
     public static void main(String[] args) {
-        List<Film> films = createFilms();
-
-        films = filter(films, allOf(containsInName("a"), withReleaseYearBetween(2000, 2014)));
-        sort(films, multiCriterion(reverseOrder(byReleaseYear()), byName()));
-
-        printList(films);
-    }
-
-    public static List<Film> createFilms() {
-        List<Film> films = new ArrayList<>();
-        films.add(new Film("Pulp Fiction", 1994, asList(THRILLER, COMEDY, CRIME)));
-        films.add(new Film("Her", 2013, asList(ROMANCE, DRAMA, SCI_FI)));
-        films.add(new Film("Captain Fantastic", 2016, asList(DRAMA, ROMANCE, COMEDY)));
-        return films;
+        try {
+            List<Film> films = readFilmsFromFile(INPUT_TEXT_FILE);
+            writeFilmsIntoBinFile(OUTPUT_BIN_FILE, films);
+            System.out.println("DONE");
+        } catch (IOException e) {
+            System.out.println("IO Error. " + e.getMessage());
+        } catch (IllegalFormatException e) {
+            System.out.println("Illegal format. " + e.getMessage());
+        }
     }
 }

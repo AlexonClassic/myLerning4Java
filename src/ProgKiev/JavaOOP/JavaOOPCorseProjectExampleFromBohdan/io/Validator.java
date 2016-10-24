@@ -1,6 +1,4 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering;
-
-import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.io;
 
 /**
  * @author bvanchuhov
@@ -56,25 +54,20 @@ import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class FilmPredicates {
+public class Validator {
 
-    private FilmPredicates() {}
+    private Validator() {}
 
-    public static Predicate<Film> containsInName(String nameSubstring) {
-        return new Predicate<Film>() {
-            @Override
-            public boolean apply(Film elem) {
-                return elem.getName().toLowerCase().contains(nameSubstring.toLowerCase());
-            }
-        };
+    public static boolean isReleaseYear(int year) {
+        return year >= 1880 && year <= 2050;
     }
 
-    public static Predicate<Film> withReleaseYearBetween(int minYear, int maxYear) {
-        return new Predicate<Film>() {
-            @Override
-            public boolean apply(Film elem) {
-                return elem.getReleaseYear() >= minYear && elem.getReleaseYear() <= maxYear;
-            }
-        };
+    public static boolean isInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

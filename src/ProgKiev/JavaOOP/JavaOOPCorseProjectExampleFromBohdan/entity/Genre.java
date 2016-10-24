@@ -1,6 +1,4 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common;
-
-import java.util.List;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity;
 
 /**
  * @author bvanchuhov
@@ -56,13 +54,29 @@ import java.util.List;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class CommonUtils {
+public enum Genre {
+    ACTION,
+    ADVENTURE,
+    FANTASY,
+    ANIMATION,
+    COMEDY,
+    CRIME,
+    DETECTIVE,
+    DRAMA,
+    DOCUMENTARY,
+    FAMILY,
+    HORROR,
+    ROMANCE,
+    SCI_FI,
+    THRILLER,
+    WAR;
 
-    private CommonUtils() {}
-
-    public static <E> void printList(List<E> list) {
-        for (E elem : list) {
-            System.out.println(elem);
+    public static boolean isGenre(String s) {
+        for (Genre genre : Genre.values()) {
+            if (genre.name().equals(s)) {
+                return true;
+            }
         }
+        return false;
     }
 }

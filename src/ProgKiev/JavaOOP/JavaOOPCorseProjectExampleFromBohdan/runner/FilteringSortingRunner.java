@@ -1,8 +1,22 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.runner;
 
-import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity.Film;
 
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
+
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.common.CommonUtils.printList;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity.Genre.*;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.CommonPredicates.allOf;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.FilmPredicates.containsInName;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.FilmPredicates.withReleaseYearBetween;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.Filter.filter;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting.CommonComparators.multiCriterion;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting.FilmComparators.byName;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting.FilmComparators.byReleaseYear;
+import static java.util.Arrays.asList;
+import static java.util.Collections.reverseOrder;
+import static java.util.Collections.sort;
 
 /**
  * @author bvanchuhov
@@ -58,25 +72,22 @@ import java.util.Comparator;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class FilmComparators {
+public class FilteringSortingRunner {
 
-    private FilmComparators() {}
+    public static void main(String[] args) {
+        List<Film> films = createFilms();
 
-    public static Comparator<Film> byReleaseYear() {
-        return new Comparator<Film>() {
-            @Override
-            public int compare(Film a, Film b) {
-                return Integer.compare(a.getReleaseYear(), b.getReleaseYear());
-            }
-        };
+        films = filter(films, allOf(containsInName("a"), withReleaseYearBetween(2000, 2014)));
+        sort(films, multiCriterion(reverseOrder(byReleaseYear()), byName()));
+
+        printList(films);
     }
 
-    public static Comparator<Film> byName() {
-        return new Comparator<Film>() {
-            @Override
-            public int compare(Film a, Film b) {
-                return a.getName().compareTo(b.getName());
-            }
-        };
+    public static List<Film> createFilms() {
+        List<Film> films = new ArrayList<>();
+        films.add(new Film("Pulp Fiction", 1994, asList(THRILLER, COMEDY, CRIME)));
+        films.add(new Film("Her", 2013, asList(ROMANCE, DRAMA, SCI_FI)));
+        films.add(new Film("Captain Fantastic", 2016, asList(DRAMA, ROMANCE, COMEDY)));
+        return films;
     }
 }

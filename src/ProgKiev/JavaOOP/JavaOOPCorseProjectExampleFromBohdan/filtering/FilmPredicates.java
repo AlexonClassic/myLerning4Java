@@ -1,4 +1,6 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering;
+
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity.Film;
 
 /**
  * @author bvanchuhov
@@ -54,25 +56,25 @@ package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class StringJoiner {
+public class FilmPredicates {
 
-    private final String delimiter;
+    private FilmPredicates() {}
 
-    public StringJoiner(String delimiter) {
-        this.delimiter = delimiter;
+    public static Predicate<Film> containsInName(String nameSubstring) {
+        return new Predicate<Film>() {
+            @Override
+            public boolean apply(Film elem) {
+                return elem.getName().toLowerCase().contains(nameSubstring.toLowerCase());
+            }
+        };
     }
 
-    public String join(Object... elems) {
-        StringBuilder res = new StringBuilder();
-        for (Object elem : elems) {
-            res.append(elem).append(delimiter);
-        }
-        deleteLastDelimiter(res);
-
-        return res.toString();
-    }
-
-    private StringBuilder deleteLastDelimiter(StringBuilder res) {
-        return res.delete(res.length() - delimiter.length(), res.length());
+    public static Predicate<Film> withReleaseYearBetween(int minYear, int maxYear) {
+        return new Predicate<Film>() {
+            @Override
+            public boolean apply(Film elem) {
+                return elem.getReleaseYear() >= minYear && elem.getReleaseYear() <= maxYear;
+            }
+        };
     }
 }

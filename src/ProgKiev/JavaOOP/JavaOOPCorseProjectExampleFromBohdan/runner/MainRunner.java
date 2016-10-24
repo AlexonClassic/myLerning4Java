@@ -1,13 +1,22 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.runner;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.runner;
 
-import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
-import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io.IllegalFormatException;
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.entity.Film;
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.io.FilmIOUtils;
+import ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.io.IllegalFormatException;
 
 import java.io.IOException;
 import java.util.List;
 
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io.FilmIOUtils.readFilmsFromFile;
-import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io.FilmIOUtils.writeFilmsIntoBinFile;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.common.CommonUtils.printList;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.CommonPredicates.allOf;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.FilmPredicates.containsInName;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.FilmPredicates.withReleaseYearBetween;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering.Filter.filter;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting.CommonComparators.multiCriterion;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting.FilmComparators.byName;
+import static ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.sorting.FilmComparators.byReleaseYear;
+import static java.util.Collections.reverseOrder;
+import static java.util.Collections.sort;
 
 /**
  * @author bvanchuhov
@@ -63,20 +72,40 @@ import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io.FilmIOUtils.writ
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class FilmIORunner {
+public class MainRunner {
 
-    public static final String INPUT_TEXT_FILE = "files/films.csv";
-    public static final String OUTPUT_BIN_FILE = "files/films.dat";
+    public static final String INPUT_TEXT_FILE = "D:/my Documents/Visual Studio Projects/OpenServer/domains/localhost/Java/myLerning4Java/src/ProgKiev/JavaOOP/JavaOOPCorseProjectExampleFromBohdan/files/films.csv";
+    public static final String OUTPUT_BIN_FILE = "D:/my Documents/Visual Studio Projects/OpenServer/domains/localhost/Java/myLerning4Java/src/ProgKiev/JavaOOP/JavaOOPCorseProjectExampleFromBohdan/files/films.dat";
 
     public static void main(String[] args) {
+        List<Film> films = readFilmsFromFile(INPUT_TEXT_FILE);
+
+        films = filter(films, allOf(containsInName("a"), withReleaseYearBetween(2000, 2014)));
+        sort(films, multiCriterion(reverseOrder(byReleaseYear()), byName()));
+
+        printList(films);
+        writeFilmsIntoBinFile(films, OUTPUT_BIN_FILE);
+    }
+
+    private static List<Film> readFilmsFromFile(String fileName) {
         try {
-            List<Film> films = readFilmsFromFile(INPUT_TEXT_FILE);
-            writeFilmsIntoBinFile(OUTPUT_BIN_FILE, films);
-            System.out.println("DONE");
+            return FilmIOUtils.readFilmsFromFile(fileName);
         } catch (IOException e) {
             System.out.println("IO Error. " + e.getMessage());
+            System.exit(0);
+            return null;
         } catch (IllegalFormatException e) {
             System.out.println("Illegal format. " + e.getMessage());
+            System.exit(0);
+            return null;
+        }
+    }
+
+    private static void writeFilmsIntoBinFile(List<Film> films, String fileName) {
+        try {
+            FilmIOUtils.writeFilmsIntoBinFile(fileName, films);
+        } catch (IOException e) {
+            System.out.println("IO Error. " + e.getMessage());
         }
     }
 }

@@ -1,9 +1,4 @@
-package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
-
-import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common.StringJoiner;
-
-import java.io.Serializable;
-import java.util.*;
+package ProgKiev.JavaOOP.JavaOOPCorseProjectExampleFromBohdan.filtering;
 
 /**
  * @author bvanchuhov
@@ -59,77 +54,24 @@ import java.util.*;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public final class Film implements Entity, Serializable {
+public class CommonPredicates {
 
-    private static final long serialVersionUID = 1901844035306848617L;
+    private CommonPredicates() {}
 
-    private String name;
-    private int releaseYear;
-    private Set<Genre> genres = new TreeSet<>();
-
-    public Film(String name) {
-        this.name = name;
-    }
-
-    public Film(String name, int releaseYear, Collection<Genre> genres) {
-        this.name = name;
-        this.releaseYear = releaseYear;
-        this.genres = new TreeSet<>(genres);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Film setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public int getReleaseYear() {
-        return releaseYear;
-    }
-
-    public Film setReleaseYear(int releaseYear) {
-        this.releaseYear = releaseYear;
-        return this;
-    }
-
-    public Film addGenre(Genre genre) {
-        genres.add(genre);
-        return this;
-    }
-
-    public Set<Genre> getGenres() {
-        return genres;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Film)) return false;
-        Film film = (Film) o;
-        return releaseYear == film.releaseYear &&
-                Objects.equals(name, film.name) &&
-                Objects.equals(genres, film.genres);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, releaseYear, genres);
-    }
-
-    @Override
-    public String toOutputString(String delimiter) {
-        return new StringJoiner(delimiter).join(name, releaseYear, new StringJoiner(", ").join(genres.toArray()));
-    }
-
-    @Override
-    public String toString() {
-        return "Film{" +
-                "name='" + name + '\'' +
-                ", releaseYear=" + releaseYear +
-                ", genres=" + genres +
-                '}';
+    /**
+     * Logical AND.
+     */
+    public static <T> Predicate<T> allOf(Predicate<T>... predicates) {
+        return new Predicate<T>() {
+            @Override
+            public boolean apply(T elem) {
+                for (Predicate<T> predicate : predicates) {
+                    if (!predicate.apply(elem)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
     }
 }
