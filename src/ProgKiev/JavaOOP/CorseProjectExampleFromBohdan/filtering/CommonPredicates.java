@@ -1,7 +1,4 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering;
-
-import java.util.ArrayList;
-import java.util.List;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering;
 
 /**
  * @author bvanchuhov
@@ -57,19 +54,24 @@ import java.util.List;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class Filter {
+public class CommonPredicates {
 
-    private Filter() {}
+    private CommonPredicates() {}
 
-    public static <T> List<T> filter(List<T> elems, Predicate<T> predicate) {
-        List<T> res = new ArrayList<>();
-
-        for (T elem : elems) {
-            if (predicate.apply(elem)) {
-                res.add(elem);
+    /**
+     * Logical AND.
+     */
+    public static <T> Predicate<T> allOf(Predicate<T>... predicates) {
+        return new Predicate<T>() {
+            @Override
+            public boolean apply(T elem) {
+                for (Predicate<T> predicate : predicates) {
+                    if (!predicate.apply(elem)) {
+                        return false;
+                    }
+                }
+                return true;
             }
-        }
-
-        return res;
+        };
     }
 }

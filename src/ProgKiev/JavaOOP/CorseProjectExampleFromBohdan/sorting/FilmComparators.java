@@ -1,13 +1,8 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.runner;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting;
 
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.entity.Film;
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.io.IllegalFormatException;
+import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
 
-import java.io.IOException;
-import java.util.List;
-
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.io.FilmIOUtils.readFilmsFromFile;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.io.FilmIOUtils.writeFilmsIntoBinFile;
+import java.util.Comparator;
 
 /**
  * @author bvanchuhov
@@ -63,20 +58,25 @@ import static ProgKiev.JavaOOP.CourseProjectFromBohdan.io.FilmIOUtils.writeFilms
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class FilmIORunner {
+public class FilmComparators {
 
-    public static final String INPUT_TEXT_FILE = "files/films.csv";
-    public static final String OUTPUT_BIN_FILE = "files/films.dat";
+    private FilmComparators() {}
 
-    public static void main(String[] args) {
-        try {
-            List<Film> films = readFilmsFromFile(INPUT_TEXT_FILE);
-            writeFilmsIntoBinFile(OUTPUT_BIN_FILE, films);
-            System.out.println("DONE");
-        } catch (IOException e) {
-            System.out.println("IO Error. " + e.getMessage());
-        } catch (IllegalFormatException e) {
-            System.out.println("Illegal format. " + e.getMessage());
-        }
+    public static Comparator<Film> byReleaseYear() {
+        return new Comparator<Film>() {
+            @Override
+            public int compare(Film a, Film b) {
+                return Integer.compare(a.getReleaseYear(), b.getReleaseYear());
+            }
+        };
+    }
+
+    public static Comparator<Film> byName() {
+        return new Comparator<Film>() {
+            @Override
+            public int compare(Film a, Film b) {
+                return a.getName().compareTo(b.getName());
+            }
+        };
     }
 }

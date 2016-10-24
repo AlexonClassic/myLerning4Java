@@ -1,7 +1,7 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.io;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
 
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.entity.Film;
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.entity.Genre;
+import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
+import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Genre;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.io.Validator.isInt;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.io.Validator.isReleaseYear;
+import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io.Validator.isInt;
+import static ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io.Validator.isReleaseYear;
 
 /**
  * @author bvanchuhov
@@ -78,6 +78,7 @@ public class FilmIOUtils {
      * @throws IOException
      * @throws IllegalFormatException
      */
+
     public static List<Film> readFilmsFromFile(String fileName) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             return readFilms(reader);
@@ -88,6 +89,7 @@ public class FilmIOUtils {
      * @throws IOException
      * @throws IllegalFormatException
      */
+
     public static List<Film> readFilms(BufferedReader reader) throws IOException {
         List<Film> res = new ArrayList<>();
 
@@ -104,6 +106,7 @@ public class FilmIOUtils {
      * @throws IOException
      * @throws IllegalFormatException
      */
+
     public static Film readFilmFromFile(String fileName) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             return readFilm(reader);
@@ -114,6 +117,7 @@ public class FilmIOUtils {
      * @throws IOException
      * @throws IllegalFormatException
      */
+
     public static Film readFilm(BufferedReader reader) throws IOException {
         String line = reader.readLine();
         return parseFilm(line);
@@ -147,6 +151,7 @@ public class FilmIOUtils {
      * @throws IOException
      * @throws IllegalFormatException
      */
+
     public static List<Film> readFilmsFromBinFile(String fileName) throws IOException {
         try (ObjectInput objectInput = new ObjectInputStream(new FileInputStream(fileName))) {
             return (List<Film>)objectInput.readObject();
@@ -160,6 +165,7 @@ public class FilmIOUtils {
     /**
      * @throws IllegalFormatException
      */
+
     public static Film parseFilm(String line) {
         String[] tokens = line.split(CSV_DELIMITER);
 
@@ -187,6 +193,7 @@ public class FilmIOUtils {
     /**
      * @throws IllegalFormatException
      */
+
     public static Set<Genre> parseGenre(String line) {
         Set<Genre> genres = new HashSet<>();
 

@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.entity;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
 
 /**
  * @author bvanchuhov
@@ -54,6 +54,29 @@ package ProgKiev.JavaOOP.CourseProjectFromBohdan.entity;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public interface Entity {
-    String toOutputString(String delimiter);
+public enum Genre {
+    ACTION,
+    ADVENTURE,
+    FANTASY,
+    ANIMATION,
+    COMEDY,
+    CRIME,
+    DETECTIVE,
+    DRAMA,
+    DOCUMENTARY,
+    FAMILY,
+    HORROR,
+    ROMANCE,
+    SCI_FI,
+    THRILLER,
+    WAR;
+
+    public static boolean isGenre(String s) {
+        for (Genre genre : Genre.values()) {
+            if (genre.name().equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

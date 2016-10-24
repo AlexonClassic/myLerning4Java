@@ -1,22 +1,4 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.runner;
-
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.entity.Film;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.common.CommonUtils.printList;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.entity.Genre.*;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.CommonPredicates.allOf;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.FilmPredicates.containsInName;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.FilmPredicates.withReleaseYearBetween;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.Filter.filter;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting.CommonComparators.multiCriterion;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting.FilmComparators.byName;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting.FilmComparators.byReleaseYear;
-import static java.util.Arrays.asList;
-import static java.util.Collections.reverseOrder;
-import static java.util.Collections.sort;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common;
 
 /**
  * @author bvanchuhov
@@ -72,22 +54,25 @@ import static java.util.Collections.sort;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class FilteringSortingRunner {
+public class StringJoiner {
 
-    public static void main(String[] args) {
-        List<Film> films = createFilms();
+    private final String delimiter;
 
-        films = filter(films, allOf(containsInName("a"), withReleaseYearBetween(2000, 2014)));
-        sort(films, multiCriterion(reverseOrder(byReleaseYear()), byName()));
-
-        printList(films);
+    public StringJoiner(String delimiter) {
+        this.delimiter = delimiter;
     }
 
-    public static List<Film> createFilms() {
-        List<Film> films = new ArrayList<>();
-        films.add(new Film("Pulp Fiction", 1994, asList(THRILLER, COMEDY, CRIME)));
-        films.add(new Film("Her", 2013, asList(ROMANCE, DRAMA, SCI_FI)));
-        films.add(new Film("Captain Fantastic", 2016, asList(DRAMA, ROMANCE, COMEDY)));
-        return films;
+    public String join(Object... elems) {
+        StringBuilder res = new StringBuilder();
+        for (Object elem : elems) {
+            res.append(elem).append(delimiter);
+        }
+        deleteLastDelimiter(res);
+
+        return res.toString();
+    }
+
+    private StringBuilder deleteLastDelimiter(StringBuilder res) {
+        return res.delete(res.length() - delimiter.length(), res.length());
     }
 }

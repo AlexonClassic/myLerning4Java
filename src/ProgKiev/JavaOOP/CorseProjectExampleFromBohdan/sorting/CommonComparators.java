@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.sorting;
 
 import java.util.Comparator;
 

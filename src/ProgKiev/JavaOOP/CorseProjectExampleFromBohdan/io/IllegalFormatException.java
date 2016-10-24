@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.common;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
 
 /**
  * @author bvanchuhov
@@ -54,25 +54,17 @@ package ProgKiev.JavaOOP.CourseProjectFromBohdan.common;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class StringJoiner {
+public class IllegalFormatException extends RuntimeException {
 
-    private final String delimiter;
-
-    public StringJoiner(String delimiter) {
-        this.delimiter = delimiter;
+    public IllegalFormatException(String message) {
+        super(message);
     }
 
-    public String join(Object... elems) {
-        StringBuilder res = new StringBuilder();
-        for (Object elem : elems) {
-            res.append(elem).append(delimiter);
-        }
-        deleteLastDelimiter(res);
-
-        return res.toString();
+    public IllegalFormatException(String message, Throwable cause) {
+        super(message, cause);
     }
 
-    private StringBuilder deleteLastDelimiter(StringBuilder res) {
-        return res.delete(res.length() - delimiter.length(), res.length());
+    public IllegalFormatException(Throwable cause) {
+        super(cause);
     }
 }

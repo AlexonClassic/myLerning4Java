@@ -1,22 +1,9 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.runner;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity;
 
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.entity.Film;
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.io.FilmIOUtils;
-import ProgKiev.JavaOOP.CourseProjectFromBohdan.io.IllegalFormatException;
+import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common.StringJoiner;
 
-import java.io.IOException;
-import java.util.List;
-
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.common.CommonUtils.printList;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.CommonPredicates.allOf;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.FilmPredicates.containsInName;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.FilmPredicates.withReleaseYearBetween;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering.Filter.filter;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting.CommonComparators.multiCriterion;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting.FilmComparators.byName;
-import static ProgKiev.JavaOOP.CourseProjectFromBohdan.sorting.FilmComparators.byReleaseYear;
-import static java.util.Collections.reverseOrder;
-import static java.util.Collections.sort;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * @author bvanchuhov
@@ -72,40 +59,77 @@ import static java.util.Collections.sort;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class MainRunner {
+public final class Film implements Entity, Serializable {
 
-    public static final String INPUT_TEXT_FILE = "D:/my Documents/Visual Studio Projects/OpenServer/domains/localhost/Java/myLerning4Java/src/files/films.csv";
-    public static final String OUTPUT_BIN_FILE = "D:/my Documents/Visual Studio Projects/OpenServer/domains/localhost/Java/myLerning4Java/src/files/films.dat";
+    private static final long serialVersionUID = 1901844035306848617L;
 
-    public static void main(String[] args) {
-        List<Film> films = readFilmsFromFile(INPUT_TEXT_FILE);
+    private String name;
+    private int releaseYear;
+    private Set<Genre> genres = new TreeSet<>();
 
-        films = filter(films, allOf(containsInName("a"), withReleaseYearBetween(2000, 2014)));
-        sort(films, multiCriterion(reverseOrder(byReleaseYear()), byName()));
-
-        printList(films);
-        writeFilmsIntoBinFile(films, OUTPUT_BIN_FILE);
+    public Film(String name) {
+        this.name = name;
     }
 
-    private static List<Film> readFilmsFromFile(String fileName) {
-        try {
-            return FilmIOUtils.readFilmsFromFile(fileName);
-        } catch (IOException e) {
-            System.out.println("IO Error. " + e.getMessage());
-            System.exit(0);
-            return null;
-        } catch (IllegalFormatException e) {
-            System.out.println("Illegal format. " + e.getMessage());
-            System.exit(0);
-            return null;
-        }
+    public Film(String name, int releaseYear, Collection<Genre> genres) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+        this.genres = new TreeSet<>(genres);
     }
 
-    private static void writeFilmsIntoBinFile(List<Film> films, String fileName) {
-        try {
-            FilmIOUtils.writeFilmsIntoBinFile(fileName, films);
-        } catch (IOException e) {
-            System.out.println("IO Error. " + e.getMessage());
-        }
+    public String getName() {
+        return name;
+    }
+
+    public Film setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    public Film setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+        return this;
+    }
+
+    public Film addGenre(Genre genre) {
+        genres.add(genre);
+        return this;
+    }
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Film)) return false;
+        Film film = (Film) o;
+        return releaseYear == film.releaseYear &&
+                Objects.equals(name, film.name) &&
+                Objects.equals(genres, film.genres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, releaseYear, genres);
+    }
+
+    @Override
+    public String toOutputString(String delimiter) {
+        return new StringJoiner(delimiter).join(name, releaseYear, new StringJoiner(", ").join(genres.toArray()));
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "name='" + name + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", genres=" + genres +
+                '}';
     }
 }

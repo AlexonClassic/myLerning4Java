@@ -1,4 +1,6 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.common;
+
+import java.util.List;
 
 /**
  * @author bvanchuhov
@@ -54,24 +56,13 @@ package ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class CommonPredicates {
+public class CommonUtils {
 
-    private CommonPredicates() {}
+    private CommonUtils() {}
 
-    /**
-     * Logical AND.
-     */
-    public static <T> Predicate<T> allOf(Predicate<T>... predicates) {
-        return new Predicate<T>() {
-            @Override
-            public boolean apply(T elem) {
-                for (Predicate<T> predicate : predicates) {
-                    if (!predicate.apply(elem)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        };
+    public static <E> void printList(List<E> list) {
+        for (E elem : list) {
+            System.out.println(elem);
+        }
     }
 }

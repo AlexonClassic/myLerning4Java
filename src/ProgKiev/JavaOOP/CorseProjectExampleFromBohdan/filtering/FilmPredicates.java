@@ -1,4 +1,6 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.filtering;
+
+import ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.entity.Film;
 
 /**
  * @author bvanchuhov
@@ -54,6 +56,25 @@ package ProgKiev.JavaOOP.CourseProjectFromBohdan.filtering;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public interface Predicate<T> {
-    boolean apply(T elem);
+public class FilmPredicates {
+
+    private FilmPredicates() {}
+
+    public static Predicate<Film> containsInName(String nameSubstring) {
+        return new Predicate<Film>() {
+            @Override
+            public boolean apply(Film elem) {
+                return elem.getName().toLowerCase().contains(nameSubstring.toLowerCase());
+            }
+        };
+    }
+
+    public static Predicate<Film> withReleaseYearBetween(int minYear, int maxYear) {
+        return new Predicate<Film>() {
+            @Override
+            public boolean apply(Film elem) {
+                return elem.getReleaseYear() >= minYear && elem.getReleaseYear() <= maxYear;
+            }
+        };
+    }
 }

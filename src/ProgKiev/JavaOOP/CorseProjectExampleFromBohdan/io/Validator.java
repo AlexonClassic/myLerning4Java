@@ -1,4 +1,4 @@
-package ProgKiev.JavaOOP.CourseProjectFromBohdan.io;
+package ProgKiev.JavaOOP.CorseProjectExampleFromBohdan.io;
 
 /**
  * @author bvanchuhov
@@ -54,17 +54,20 @@ package ProgKiev.JavaOOP.CourseProjectFromBohdan.io;
  * Файловый ввод/вывод в текстовом и бинарном форматах. (в процессе доработки…)
  */
 
-public class IllegalFormatException extends RuntimeException {
+public class Validator {
 
-    public IllegalFormatException(String message) {
-        super(message);
+    private Validator() {}
+
+    public static boolean isReleaseYear(int year) {
+        return year >= 1880 && year <= 2050;
     }
 
-    public IllegalFormatException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public IllegalFormatException(Throwable cause) {
-        super(cause);
+    public static boolean isInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
