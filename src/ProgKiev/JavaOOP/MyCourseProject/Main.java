@@ -1,7 +1,7 @@
 package ProgKiev.JavaOOP.MyCourseProject;
 
 /**
- * Created by Олександр Шаповал on 23.09.2016
+ * Created by Олександр Шаповал on 23.09.2016.
  *
  * Курсовой проект
  */
