@@ -1,4 +1,4 @@
-package ProgKiev.JavaStart.package_sample.my_package;
+package ProgKiev.JavaStart.PackageSample.my_package;
 
 /**
  * @author Bohdan Vanchuhov
