@@ -25,6 +25,7 @@ public class Cycles {
      * @param iLength
      * @return
      */
+
     private static int[] mirror(int iLength) {
         int[] a = new int[iLength];
         for (int i = 0; i < iLength>>1; i++) {
@@ -50,7 +51,9 @@ public class Cycles {
      */
     private static int[] range(int iStart, int iEnd) {
         int[] a = new int[Math.abs(iEnd - iStart) + 1];
+
         int iTmp = iStart;
+
         for (int i = 0; i < a.length; i++) {
             a[i] = iTmp;
             if (iEnd > iStart) {
@@ -59,11 +62,13 @@ public class Cycles {
                 iTmp--;
             }
         }
+
         return a;
     }
 
     private static int[] rand(int iLength) {
         Random r = new Random();
+
         int[] a = new int[iLength];
         for (int i = 0; i < a.length; i++) {
             a[i] = r.nextInt(255);
@@ -71,5 +76,4 @@ public class Cycles {
 
         return a;
     }
-
 }
