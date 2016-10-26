@@ -1,6 +1,9 @@
 package ProgKiev.JavaOOP.MyCourseProject.User.Profile;
 
+import ProgKiev.JavaOOP.MyCourseProject.User.CV.CV;
+import ProgKiev.JavaOOP.MyCourseProject.User.CV.UserCreateCV;
 import ProgKiev.JavaOOP.MyCourseProject.Utils.IDGenerator;
+
 import java.util.Scanner;
 
 /**
@@ -12,6 +15,7 @@ import java.util.Scanner;
 public class User {
     Scanner scanner = new Scanner(System.in);
     IDGenerator idGenerator = new IDGenerator();
+    CV cv;
 
     private long userId = idGenerator.generateID();
     private String userName;
@@ -83,10 +87,13 @@ public class User {
         System.out.print("       - enter where you live: ");
         setUserLive(scanner.next());
         System.out.println("----------------------");
+
+        UserCreateCV userCreateCV = new UserCreateCV();
+        userCreateCV.CVCreator();
     }
 
     @Override
     public String toString() {
-        return "User ID: " + userId + ". User: " + userName + " " + userLastName + ". User Birthday: " + userBirthday + ", hi is " + userAge + " yars old. His gender is: " + userGender + " and user live in: " + userLive;
+        return "User ID: " + userId + ". User: " + userName + " " + userLastName + ". User Birthday: " + userBirthday + ", hi is " + userAge + " yars old. His gender is: " + userGender + " and user live in: " + userLive + " " + cv;
     }
 }
