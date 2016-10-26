@@ -1,23 +1,16 @@
 package ProgKiev.JavaOOP.MyCourseProject.User.CV;
 
-import ProgKiev.JavaOOP.MyCourseProject.User.Profile.User;
-
 /**
  * Created by Олександр Шаповал on 23.09.2016.
  *
  * Курсовой проект
  */
 
-public class CV extends User{
+public class CV{
     private String userVacancy;
     private int userSavary;
 
-//    private String userVacancy = "Buhgalter";
-//    private int userSavary = 12_000;
-
-//    public CV(long userId, String userName, String userLastName, String userBirthday, int userAge, String userGender, String userCitizenship, String userLive) {
-//        super(userId, userName, userLastName, userBirthday, userAge, userGender, userCitizenship, userLive);
-//    }
+//    UserCreateCV userCreateCV = new UserCreateCV();
 
     public String getUserVacancy() {
         return userVacancy;
@@ -35,12 +28,8 @@ public class CV extends User{
         this.userSavary = userSavary;
     }
 
-    void say(){
-        System.out.println("User create thise CV in class CV, method Say");
-    }
-
     @Override
     public String toString() {
-        return "User Vacancy is: " + userVacancy + ", User Savary is: " + userSavary;
+        return " User Vacancy is: " + getUserVacancy() + ", User Savary is: " + getUserSavary();
     }
 }
