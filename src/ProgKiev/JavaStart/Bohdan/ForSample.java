@@ -1,4 +1,4 @@
-package ProgKiev.JavaStart_Bohdan;
+package ProgKiev.JavaStart.Bohdan;
 
 /**
  * Created by Олександр Шаповал on 10.07.2016.
