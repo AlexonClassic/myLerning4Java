@@ -6,7 +6,7 @@ package ProgKiev.JavaOOP.MyCourseProject.Entity;
  * Курсовой проект
  */
 
-public enum VacanciesCategory {
+public enum JobsCategories {
     IT("IT"),
     AUDIT("Audit"),
     RETAIL("Retail"),
@@ -14,18 +14,18 @@ public enum VacanciesCategory {
     FINANCE("Finance"),
     OTHER("Other");
 
-    private final String vacanciesCategory;
+    private final String jobCategory;
 
-    VacanciesCategory(String vacanciesCategory) {
-        this.vacanciesCategory = vacanciesCategory;
+    JobsCategories(String jobCategory) {
+        this.jobCategory = jobCategory;
     }
 
-    public String getVacanciesCategory() {
-        return vacanciesCategory;
+    public String getJobCategory() {
+        return jobCategory;
     }
 
     @Override
     public String toString() {
-        return "Vacancy category: " + vacanciesCategory + " ";
+        return "Vacancy category: " + jobCategory + " ";
     }
 }
