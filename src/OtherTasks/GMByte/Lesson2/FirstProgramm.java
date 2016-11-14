@@ -5,7 +5,7 @@ package OtherTasks.GMByte.Lesson2;
  *
  * Lesson - 2
  *
- * https://docviewer.yandex.ua/?url=ya-disk-public%3A%2F%2FWRJzA1WIPQGSpsK1qOgpikP07Sl4LwzEVcat7oIksDQ%3D&name=Domashnie_zadania_k_urokam_1-_15.txt&page=1&c=5829b3df2c26
+ * https://youtu.be/aWf2uCcC2Nk?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
  * 1) Выведите на экран, пять раз, строку:
  * "Ура! Сделан мой первый шаг в java!".
@@ -18,7 +18,7 @@ package OtherTasks.GMByte.Lesson2;
  * Примечание: Для вывода каждой новой строки должна использоваться
  * отдельная команда!
  *
- * https://youtu.be/aWf2uCcC2Nk?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
+ * https://docviewer.yandex.ua/?url=ya-disk-public%3A%2F%2FWRJzA1WIPQGSpsK1qOgpikP07Sl4LwzEVcat7oIksDQ%3D&name=Domashnie_zadania_k_urokam_1-_15.txt&page=1&c=5829b3df2c26
  */
 
 public class FirstProgramm {
