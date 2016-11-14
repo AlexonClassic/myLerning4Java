@@ -23,12 +23,14 @@ public class Constructors {
     byte b;
     byte c;
     byte d;
+    static byte e;
 
-    public Constructors(byte a, byte b, byte c, byte d) {
+    public Constructors(byte a, byte b, byte c, byte d, byte e) {
         this.a = a;
         this.b = b;
         this.c = c;
         this.d = d;
+        this.e = e;
 
         System.out.println("---------------------------");
         System.out.println();
@@ -39,5 +41,7 @@ public class Constructors {
         System.out.println("Variable \"byte c\", contains argument: " + c + ". I created");
         System.out.println("---------------------------");
         System.out.println("Variable \"byte d\", contains argument: " + d + ". I created");
+        System.out.println("---------------------------");
+        System.out.println("Static variable \"byte e\", contains argument: " + e + ". I created");
     }
 }

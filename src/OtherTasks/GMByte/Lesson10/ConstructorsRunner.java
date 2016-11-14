@@ -20,6 +20,6 @@ package OtherTasks.GMByte.Lesson10;
 
 public class ConstructorsRunner {
     public static void main(String[] args) {
-        Constructors constructors = new Constructors((byte)5, (byte)7, (byte)10, (byte)-100);
+        Constructors constructors = new Constructors((byte)5, (byte)7, (byte)10, (byte)-100, (byte)70);
     }
 }
