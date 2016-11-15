@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson13;
 /**
  * Created by Олександр Шаповал on 14.11.2016.
  *
- * Lesson - 13
+ * Lesson - 13 - Циклы:
  *
  * https://youtu.be/83APFViB7WQ?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
