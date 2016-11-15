@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson6;
 /**
  * Created by Олександр Шаповал on 11.11.2016
  *
- * Lesson - 6
+ * Lesson - 6 - Ссылочные переменные:
  *
  * https://youtu.be/8XIZKdjZJSc?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
