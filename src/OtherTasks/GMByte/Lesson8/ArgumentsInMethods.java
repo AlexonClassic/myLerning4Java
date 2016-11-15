@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson8;
 /**
  * Created by Олександр Шаповал on 11.11.2016
  *
- * Lesson - 8
+ * Lesson - 8 - Аргументы в методах:
  *
  * https://youtu.be/3r5Hjo03J3E?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
