@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson10;
 /**
  * Created by Олександр Шаповал on 11.11.2016
  *
- * Lesson - 10
+ * Lesson - 10 - Конструкторы:
  *
  * https://youtu.be/WAeT1eW4mr4?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
