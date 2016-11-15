@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson7;
 /**
  * Created by Олександр Шаповал on 11.11.2016
  *
- * Lesson - 7
+ * Lesson - 7 - Ключевое слово static:
  *
  * https://youtu.be/tJ8N4pafRl8?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
