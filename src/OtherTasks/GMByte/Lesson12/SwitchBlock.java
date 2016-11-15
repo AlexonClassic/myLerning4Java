@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson12;
 /**
  * Created by Олександр Шаповал on 14.11.2016.
  *
- * Lesson - 12
+ * Lesson - 12 - Блок switch:
  *
  * https://youtu.be/6ILnDdT6FU4?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
