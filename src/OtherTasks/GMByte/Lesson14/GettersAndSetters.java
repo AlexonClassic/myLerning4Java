@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson14;
 /**
  * Created by Олександр Шаповал on 14.11.2016.
  *
- * Lesson - 14
+ * Lesson - 14 - Геттеры и сеттеры (get, set):
  *
  * https://youtu.be/0avmK_ltOfA?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
