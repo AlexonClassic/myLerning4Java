@@ -3,7 +3,7 @@ package OtherTasks.GMByte.Lesson9;
 /**
  * Created by Олександр Шаповал on 11.11.2016
  *
- * Lesson - 9
+ * Lesson - 9 - Модификаторы доступа:
  *
  * https://youtu.be/UmKVu4xz33o?list=PLk95cAdGYXN1GYSm1NIMHJuyq_kk9Obg9
  *
